@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Kinvent Companion",
   "repo": "kinvent/companion-ble-app",
-  "updatedAt": "2026-09-02T05:25:22.132Z",
+  "updatedAt": "2026-09-02T05:40:55.050Z",
   "releases": [
     {
       "version": "0.1.0",
@@ -12,8 +12,8 @@
           "os": "windows",
           "arch": "x64",
           "kind": "installer",
-          "size": 105085778,
-          "sha256": "9b31932ec06f5e3e7387803c01e3bf2f650dac29f26f3426767d2c0c5b190887",
+          "size": 105085868,
+          "sha256": "ae540b96a1ba7ec1dd46dd6e7d3f51597df2ab5eceda5a989fda4e1e9c6835bc",
           "url": "https://github.com/kinvent/companion-ble-app/releases/download/companion-v0.1.0/Kinvent-Companion-Setup-0.1.0-x64.exe"
         },
         {
@@ -21,8 +21,8 @@
           "os": "mac",
           "arch": "arm64",
           "kind": "dmg",
-          "size": 126157630,
-          "sha256": "f33e39023d0b5a0d2e5e7bccbe2fbd290baaaec6b03a6705003e7c9eef394ee6",
+          "size": 126157767,
+          "sha256": "63d25c66dee7cfaf027b344c446d00dd7a16f62dd8b1c855e44a55f73574db20",
           "url": "https://github.com/kinvent/companion-ble-app/releases/download/companion-v0.1.0/Kinvent-Companion-0.1.0-arm64.dmg"
         },
         {
@@ -37,10 +37,10 @@
       ],
       "tag": "companion-v0.1.0",
       "releaseUrl": "https://github.com/kinvent/companion-ble-app/releases/tag/companion-v0.1.0",
-      "sourceCommit": "fa8e6f4",
-      "buildNumber": "13",
+      "sourceCommit": "e9c8a25",
+      "buildNumber": "14",
       "publishedAt": "2026-09-01T13:47:07.940Z",
-      "updatedAt": "2026-09-02T05:23:32.740Z"
+      "updatedAt": "2026-09-02T05:39:09.903Z"
     }
   ]
 }
