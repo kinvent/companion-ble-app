@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Kinvent Companion",
   "repo": "kinvent/companion-ble-app",
-  "updatedAt": "2026-09-02T05:40:55.050Z",
+  "updatedAt": "2026-09-02T07:52:31.153Z",
   "releases": [
     {
       "version": "0.1.0",
@@ -12,8 +12,8 @@
           "os": "windows",
           "arch": "x64",
           "kind": "installer",
-          "size": 105085868,
-          "sha256": "ae540b96a1ba7ec1dd46dd6e7d3f51597df2ab5eceda5a989fda4e1e9c6835bc",
+          "size": 105085846,
+          "sha256": "3a24b0edd9a62b5a424fc3de48cd27ae0f76534b0c86624cd5bd05d649013568",
           "url": "https://github.com/kinvent/companion-ble-app/releases/download/companion-v0.1.0/Kinvent-Companion-Setup-0.1.0-x64.exe"
         },
         {
@@ -21,26 +21,17 @@
           "os": "mac",
           "arch": "arm64",
           "kind": "dmg",
-          "size": 126157767,
-          "sha256": "63d25c66dee7cfaf027b344c446d00dd7a16f62dd8b1c855e44a55f73574db20",
+          "size": 126157650,
+          "sha256": "4ea722d8349f8c4cb85174c671d38b7f12421a98771a9d0701536d1dd994632b",
           "url": "https://github.com/kinvent/companion-ble-app/releases/download/companion-v0.1.0/Kinvent-Companion-0.1.0-arm64.dmg"
-        },
-        {
-          "name": "Kinvent-Companion-0.1.0-x64.dmg",
-          "os": "mac",
-          "arch": "x64",
-          "kind": "dmg",
-          "size": 130676622,
-          "sha256": "238639e2f0d9268f14d29ff96cb2b1f081a95ddb9b1fae792cfa13652d39f49f",
-          "url": "https://github.com/kinvent/companion-ble-app/releases/download/companion-v0.1.0/Kinvent-Companion-0.1.0-x64.dmg"
         }
       ],
       "tag": "companion-v0.1.0",
       "releaseUrl": "https://github.com/kinvent/companion-ble-app/releases/tag/companion-v0.1.0",
-      "sourceCommit": "e9c8a25",
-      "buildNumber": "14",
+      "sourceCommit": "0b27ecd",
+      "buildNumber": "15",
       "publishedAt": "2026-09-01T13:47:07.940Z",
-      "updatedAt": "2026-09-02T05:39:09.903Z"
+      "updatedAt": "2026-09-02T07:52:31.153Z"
     }
   ]
 }
