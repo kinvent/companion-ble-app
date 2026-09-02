@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Kinvent Companion",
   "repo": "kinvent/companion-ble-app",
-  "updatedAt": "2026-09-02T07:52:31.153Z",
+  "updatedAt": "2026-09-02T08:23:40.660Z",
   "releases": [
     {
       "version": "0.1.0",
@@ -30,8 +30,8 @@
       "releaseUrl": "https://github.com/kinvent/companion-ble-app/releases/tag/companion-v0.1.0",
       "sourceCommit": "0b27ecd",
       "buildNumber": "15",
-      "publishedAt": "2026-09-01T13:47:07.940Z",
-      "updatedAt": "2026-09-02T07:52:31.153Z"
+      "publishedAt": "2026-09-01T09:15:04Z",
+      "updatedAt": "2026-09-02T08:23:40.660Z"
     }
   ]
 }
