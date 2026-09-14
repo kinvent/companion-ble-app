@@ -2,8 +2,37 @@
   "schemaVersion": 1,
   "product": "Kinvent Companion",
   "repo": "kinvent/companion-ble-app",
-  "updatedAt": "2026-09-04T14:31:23.256Z",
+  "updatedAt": "2026-09-14T16:12:27.069Z",
   "releases": [
+    {
+      "version": "2026.8.1",
+      "assets": [
+        {
+          "name": "Kinvent-Companion-Setup-2026.8.1-x64.exe",
+          "os": "windows",
+          "arch": "x64",
+          "kind": "installer",
+          "size": 105154695,
+          "sha256": "f812feea58c0657cf899d4ce92b56f2753efe9c32a49478cb501afb661cad483",
+          "url": "https://github.com/kinvent/companion-ble-app/releases/download/companion-v2026.8.1/Kinvent-Companion-Setup-2026.8.1-x64.exe"
+        },
+        {
+          "name": "Kinvent-Companion-2026.8.1-arm64.dmg",
+          "os": "mac",
+          "arch": "arm64",
+          "kind": "dmg",
+          "size": 126965204,
+          "sha256": "6312cfe7d6003b4933bc7ac7b61f9d6ff88ec3788bd4b141543b8e42d7289ad0",
+          "url": "https://github.com/kinvent/companion-ble-app/releases/download/companion-v2026.8.1/Kinvent-Companion-2026.8.1-arm64.dmg"
+        }
+      ],
+      "tag": "companion-v2026.8.1",
+      "releaseUrl": "https://github.com/kinvent/companion-ble-app/releases/tag/companion-v2026.8.1",
+      "sourceCommit": "6e4bc19",
+      "buildNumber": "33",
+      "publishedAt": "2026-09-14T16:10:41Z",
+      "updatedAt": "2026-09-14T16:12:27.069Z"
+    },
     {
       "version": "0.1.0",
       "assets": [
