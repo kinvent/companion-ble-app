@@ -1,0 +1,10 @@
+# Build output
+dist/
+dist-testing/
+dist-examples/
+*.tsbuildinfo
+node_modules/
+
+# Recordings hold sensor data of a person (health data). Never commit them.
+recordings/
+*.csv
