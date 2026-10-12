@@ -11,7 +11,7 @@ with the reasons in the code comments.
 > Anything you build on this that changes sampling rates, calibration or the measurement path of a medical device
 > must be checked by your own device software, quality and regulatory (EU MDR) people before release.
 
-> **Licence.** Both licence files are at the root of this repository. This sample: [`LICENSE`](../../LICENSE). The SDK: [`LICENSE-SDK`](../../LICENSE-SDK), the same text that is
+> **Licence.** Both licence files are at the root of this repository. This sample: [`LICENSE`](../LICENSE). The SDK: [`LICENSE-SDK`](../LICENSE-SDK), the same text that is
 > packed inside the SDK file (after `npm install`: `node_modules/@kinvent/companion-sdk/LICENSE`).
 
 | You want to… | Read |
@@ -78,7 +78,7 @@ with the reasons in the code comments.
 - **`rxjs` 7.** The SDK hands you RxJS observables.
 - **The SDK file from Kinvent.** `@kinvent/companion-sdk` is not on the public npm registry. Kinvent gives your
   organisation the SDK as one file, `kinvent-companion-sdk-<version>.tgz`, under the licence in
-  [`LICENSE-SDK`](../../LICENSE-SDK) (the same text is packed inside the SDK file).
+  [`LICENSE-SDK`](../LICENSE-SDK) (the same text is packed inside the SDK file).
   The `<version>` must be the version this sample is built for: the one written in `vendor/README.md` and in
   `package.json` (`"@kinvent/companion-sdk": "file:vendor/kinvent-companion-sdk-<version>.tgz"`). This project itself
   is public; the SDK file is not. Do not commit it, publish it or share it outside your organisation

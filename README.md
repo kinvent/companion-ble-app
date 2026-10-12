@@ -11,12 +11,12 @@ session, prepares the sensors, and receives their samples with names and units.
 
 | Folder | Language | What it shows |
 |---|---|---|
-| [`sample/kinvent-companion-sdk-sample`](./sample/kinvent-companion-sdk-sample) | JavaScript / TypeScript (Node.js) | A command-line program that records force data from one sensor or a pair of sensors to a CSV file and shows live values with their units. Includes short SDK snippets, a quickstart, and tests that run without sensors. |
+| [`kinvent-companion-sdk-sample`](./kinvent-companion-sdk-sample) | JavaScript / TypeScript (Node.js) | A command-line program that records force data from one sensor or a pair of sensors to a CSV file and shows live values with their units. Includes short SDK snippets, a quickstart, and tests that run without sensors. |
 
 The SDK is available for **JavaScript only** today (Node.js and browsers, with TypeScript types). Samples for
 other languages will be added here when the SDK supports them.
 
-Start with [`sample/kinvent-companion-sdk-sample/README.md`](./sample/kinvent-companion-sdk-sample/README.md).
+Start with [`kinvent-companion-sdk-sample/README.md`](./kinvent-companion-sdk-sample/README.md).
 
 ## Requirements
 
