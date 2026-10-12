@@ -19,7 +19,7 @@ with the reasons in the code comments.
 | Understand how the pieces fit, and see the SDK in short snippets | this file, sections 1 to 5 |
 | Run the smallest complete program | [`examples/quickstart.ts`](./examples/quickstart.ts) (section 3) |
 | Find where the sample does something, and why | this file, sections 6 to 8, then the code comments |
-| Install the SDK from the file Kinvent gives you | this file, section 2 |
+| Install the SDK from the file Kinvent gives you, or update it | this file, section 2 |
 | Run the sample: flags, devices, the CSV format, error messages, exit codes | [`GUIDE.md`](./GUIDE.md) |
 | Test without sensors | this file, section 10 |
 | Look up an SDK method | this file, section 5, and the SDK's type declarations (`node_modules/@kinvent/companion-sdk/dist/index.d.ts`) |
@@ -73,23 +73,23 @@ with the reasons in the code comments.
 
 - **Node.js 22 or later** (the SDK uses the global `fetch` and `WebSocket`). In a browser, any current browser.
 - **The Kinvent Companion app, the SAME version as the SDK** (`major.minor.patch`). This sample uses
-  `@kinvent/companion-sdk` at the exact version written in `package.json`; install the Kinvent Companion app of
-  that same version. A different version is refused (error E2, `compatibility().state !== 'match'`).
+  `@kinvent/companion-sdk` at the version named in `vendor/README.md` (the same as the `version` in
+  `package.json`); install the Kinvent Companion app of that same version. A different version is refused (error E2, `compatibility().state !== 'match'`).
 - **`rxjs` 7.** The SDK hands you RxJS observables.
 - **The SDK file from Kinvent.** `@kinvent/companion-sdk` is not on the public npm registry. Kinvent gives your
   organisation the SDK as one file, `kinvent-companion-sdk-<version>.tgz`, under the licence in
-  [`LICENSE-SDK`](../../LICENSE-SDK) (the same text is packed inside the SDK file).
-  The `<version>` must be the version this sample is built for: the one written in `vendor/README.md` and in
-  `package.json` (`"@kinvent/companion-sdk": "file:vendor/kinvent-companion-sdk-<version>.tgz"`). This project itself
-  is public; the SDK file is not. Do not commit it, publish it or share it outside your organisation
-  (`vendor/*.tgz` is in this project's `.gitignore`).
+  [`LICENSE-SDK`](../../LICENSE-SDK) (the same text is packed inside the SDK file). In this project the file always has
+  ONE name, without a version: `vendor/kinvent-companion-sdk.tgz` (`package.json`:
+  `"@kinvent/companion-sdk": "file:vendor/kinvent-companion-sdk.tgz"`). This project itself is public; the SDK file
+  is not. Do not commit it, publish it or share it outside your organisation (`vendor/*.tgz` is in this project's
+  `.gitignore`).
 
 ### Install the SDK from the file
 
-1. Get the SDK file from Kinvent. Its name must be exactly the one in `vendor/README.md` (for example
-   `kinvent-companion-sdk-2026.9.1.tgz`). Do not rename a file of another version: the version of the file, of
-   `package.json` and of the Kinvent Companion app must be the same.
-2. Put the file in the `vendor/` folder of this project.
+1. Get the SDK file from Kinvent, for example `kinvent-companion-sdk-<version>.tgz`. `vendor/README.md` names the
+   SDK version this sample was built and tested with; the `version` in this project's `package.json` is the same
+   version.
+2. Copy the file into the `vendor/` folder of this project and rename it to `kinvent-companion-sdk.tgz`.
 3. Run `npm install`.
 
 `npm install` reads the SDK from `vendor/`. Everything else (`rxjs`, TypeScript, the Node.js types) comes from the
@@ -99,21 +99,33 @@ If the file is missing, or has another name, `npm install` stops with an error l
 "seems to be corrupted. Trying again." twice; the file is not corrupted, it is not there:
 
 ```
-npm warn tarball tarball data for @kinvent/companion-sdk@file:vendor/kinvent-companion-sdk-2026.9.1.tgz (null) seems to be corrupted. Trying again.
+npm warn tarball tarball data for @kinvent/companion-sdk@file:vendor/kinvent-companion-sdk.tgz (null) seems to be corrupted. Trying again.
 npm error code ENOENT
 npm error syscall open
-npm error path <this project>/vendor/kinvent-companion-sdk-2026.9.1.tgz
-npm error enoent ENOENT: no such file or directory, open '<this project>/vendor/kinvent-companion-sdk-2026.9.1.tgz'
+npm error path <this project>/vendor/kinvent-companion-sdk.tgz
+npm error enoent ENOENT: no such file or directory, open '<this project>/vendor/kinvent-companion-sdk.tgz'
 ```
 
-The path in the message is the file npm looked for. Put the file with exactly that name in `vendor/`, then run
-`npm install` again. If your file has another version, ask Kinvent for the file of the version this sample is built
-for, or for the sample that matches your file.
+Put the file in `vendor/` with exactly the name `kinvent-companion-sdk.tgz`, then run `npm install` again.
 
-When Kinvent sends you a new SDK file of the SAME version, replace the file in `vendor/`, delete
-`package-lock.json` and `node_modules/`, and run `npm install` again. The lockfile records the bytes of the old
-file. If you keep it, npm either stops with `npm error code EINTEGRITY` ("integrity checksum failed"), or, worse,
-installs the OLD SDK from its cache without any message.
+### Update the SDK
+
+When Kinvent sends you a newer SDK file:
+
+1. Replace `vendor/kinvent-companion-sdk.tgz` with the new file (rename it to `kinvent-companion-sdk.tgz`).
+2. Run `npm run update-sdk`.
+
+`npm run update-sdk` deletes `node_modules/` and `package-lock.json`, runs `npm install`, and prints the SDK
+version that is now installed. It works the same on macOS, Linux and Windows. If `vendor/kinvent-companion-sdk.tgz`
+is missing, it stops and changes nothing.
+
+Why a plain `npm install` is not enough: the file name does not change, but `package-lock.json` still records the
+bytes of the old file. npm can then stop with `npm error code EINTEGRITY` ("integrity checksum failed").
+Worse, npm can also keep the OLD SDK in `node_modules/` (or take it from its cache) without any message.
+
+**Check the version at run time.** The banner of the sample prints the SDK version
+(`Kinvent Companion SDK sample <version> (companion-sdk <version>)`), and the SDK refuses a Kinvent Companion app of
+another version (error E2). So after an update, also install the Kinvent Companion app of the new SDK version.
 
 The package is ESM only, and everything is imported from its root:
 
@@ -132,6 +144,7 @@ npm run build
 
 The first `npm install` creates `package-lock.json`. You can commit it in your copy of this project, so every later
 install gets the same versions. This project ships without one, because it records the exact bytes of your SDK file.
+After you replace the SDK file, run `npm run update-sdk` (section 2), then commit the new `package-lock.json`.
 
 Start the installed Kinvent Companion app (the same version as the SDK).
 

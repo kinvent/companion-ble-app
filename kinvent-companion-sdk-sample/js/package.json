@@ -13,12 +13,13 @@
     "build:testing": "tsc -p tsconfig.testing.json",
     "build:examples": "tsc -p tsconfig.examples.json",
     "typecheck": "tsc -b tsconfig.json && tsc -p tsconfig.testing.json --noEmit && tsc -p tsconfig.examples.json --noEmit",
-    "test": "npm run build:testing && node -e \"const fs=require('node:fs');const d='dist-testing/testing/tests';if(!fs.existsSync(d)||!fs.readdirSync(d).some((f)=>f.endsWith('.test.js'))){console.error('No compiled tests in '+d+'. Run: npm run build:testing');process.exit(1)}\" && node --test \"dist-testing/testing/tests/*.test.js\"",
+    "test": "npm run build:testing && node -e \"const fs=require('node:fs');const d='dist-testing/testing/tests';if(!fs.existsSync(d)||!fs.readdirSync(d).some((f)=>f.endsWith('.test.js'))){console.error('No compiled tests in '+d+'. Run: npm run build:testing');process.exit(1)}\" && node --test \"dist-testing/testing/tests/*.test.js\" scripts/update-sdk.test.mjs",
     "start": "node dist/cli.js",
+    "update-sdk": "node scripts/update-sdk.mjs",
     "clean": "node -e \"for (const p of ['dist','dist-testing','dist-examples','tsconfig.tsbuildinfo']) require('node:fs').rmSync(p,{recursive:true,force:true})\""
   },
   "dependencies": {
-    "@kinvent/companion-sdk": "file:vendor/kinvent-companion-sdk-2026.9.1.tgz",
+    "@kinvent/companion-sdk": "file:vendor/kinvent-companion-sdk.tgz",
     "rxjs": "^7.8"
   },
   "devDependencies": {

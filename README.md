@@ -24,8 +24,9 @@ Start with [`kinvent-companion-sdk-sample/js/README.md`](./kinvent-companion-sdk
   The SDK refuses to work with a Companion app of another version.
 - **Node.js 22** or later, for the JavaScript sample.
 - **The SDK file.** `@kinvent/companion-sdk` is not on the public npm registry and is not in this repository.
-  Kinvent gives you the SDK as a file, for example `kinvent-companion-sdk-2026.9.1.tgz`. Put it in the
-  sample's `vendor/` folder and run `npm install`; no login or token is needed. The file is licensed to your
+  Kinvent gives you the SDK as a file, for example `kinvent-companion-sdk-2026.9.1.tgz`. Copy it into the
+  sample's `vendor/` folder as `kinvent-companion-sdk.tgz` and run `npm install`; no login or token is
+  needed. To change to a newer SDK file later, replace it and run `npm run update-sdk`. The file is licensed to your
   organisation: never commit it or share it. The sample's `.gitignore` already keeps it out of git.
 
 ## Versions

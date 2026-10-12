@@ -21,9 +21,11 @@ The sample never talks to Bluetooth itself. The companion owns the radio. The sa
   sample stops with "Node 22 or later is required" (exit 2).
 - **A running Kinvent Companion app of the same version as the SDK.** The companion's version and the SDK's
   version must be equal on `major.minor.patch` (for example both `2026.9.1`). The SDK version is the one in
-  `package.json` (`@kinvent/companion-sdk`). A companion of another version is refused (error E2).
-- **The SDK file from Kinvent**, `kinvent-companion-sdk-<version>.tgz`, of the version named in `vendor/README.md`.
-  Put it in the `vendor/` folder of this project before `npm install` (README section 2).
+  `vendor/README.md` and the `version` of `package.json`; after `npm install`, the banner of the sample prints the
+  SDK version that is installed. A companion of another version is refused (error E2).
+- **The SDK file from Kinvent**, for example `kinvent-companion-sdk-<version>.tgz`, of the version named in
+  `vendor/README.md`. Copy it into the `vendor/` folder of this project and rename it to `kinvent-companion-sdk.tgz`
+  before `npm install` (README section 2).
 - **Bluetooth permission for the companion**, not for the sample. On macOS: System Settings → Privacy & Security →
   Bluetooth, allow the Kinvent Companion (or the terminal you start it from). Without it the companion finds no
   sensor and gives no error.
@@ -33,7 +35,7 @@ You can also test without sensors: see section 10.
 
 ## 2. Install and build
 
-In the folder of this project, with the SDK file in `vendor/` (README section 2):
+In the folder of this project, with the SDK file in `vendor/` as `kinvent-companion-sdk.tgz` (README section 2):
 
 ```
 npm install
@@ -365,12 +367,15 @@ sample writes as such.
 
 - **Version mismatch (E2).** The companion and the SDK must match on `major.minor.patch`. The SDK may also print
   a source-commit notice; that notice alone does not stop the run.
-- **`npm install` fails with `ENOENT: no such file or directory` for `vendor/kinvent-companion-sdk-<version>.tgz`.**
-  The SDK file is not in `vendor/`, or its name is not exactly the one in `vendor/README.md`. The file name carries
-  the version, and it must be the version this sample is built for. See README section 2, or ask Kinvent.
+- **`npm install` fails with `ENOENT: no such file or directory` for `vendor/kinvent-companion-sdk.tgz`.**
+  The SDK file is not in `vendor/`, or it does not have exactly the name `kinvent-companion-sdk.tgz`. Rename the file
+  you received (for example `kinvent-companion-sdk-<version>.tgz`) to that name. See README section 2, or ask Kinvent.
 - **You replaced the SDK file, and `npm install` fails with `EINTEGRITY`, or the old SDK is still used.** The
-  `package-lock.json` records the old file; npm may also take the old SDK from its cache without a message. Delete
-  `package-lock.json` and `node_modules/`, then run `npm install`.
+  `package-lock.json` records the old file, and npm can keep the old SDK without a message. Run
+  `npm run update-sdk`: it deletes `package-lock.json` and `node_modules/`, runs `npm install` and prints the SDK
+  version that is now installed. If `vendor/kinvent-companion-sdk.tgz` is missing, it stops and changes nothing.
+- **After an SDK update, the companion is refused (E2).** The new SDK needs the Kinvent Companion app of the same
+  version. The banner of the sample prints the SDK version (`companion-sdk <version>`).
 - **Session held (E3).** Only one client may hold the companion's session. A Kinvent web app tab counts, even in
   the background. Close it and wait 5 seconds; the companion frees a session 5 seconds after its last poll.
 - **No sensor found, no error.** Almost always the macOS Bluetooth permission of the companion (section 1). Also
