@@ -22,7 +22,8 @@ The sample never talks to Bluetooth itself. The companion owns the radio. The sa
 - **A running Kinvent Companion app of the same version as the SDK.** The companion's version and the SDK's
   version must be equal on `major.minor.patch` (for example both `2026.9.1`). The SDK version is the one in
   `package.json` (`@kinvent/companion-sdk`). A companion of another version is refused (error E2).
-- **A GitHub token from Kinvent** to install the SDK from Kinvent's private npm registry (README section 2).
+- **The SDK file from Kinvent**, `kinvent-companion-sdk-<version>.tgz`, of the version named in `vendor/README.md`.
+  Put it in the `vendor/` folder of this project before `npm install` (README section 2).
 - **Bluetooth permission for the companion**, not for the sample. On macOS: System Settings → Privacy & Security →
   Bluetooth, allow the Kinvent Companion (or the terminal you start it from). Without it the companion finds no
   sensor and gives no error.
@@ -32,7 +33,7 @@ You can also test without sensors: see section 10.
 
 ## 2. Install and build
 
-In the folder of this project, with `NODE_AUTH_TOKEN` set (README section 2):
+In the folder of this project, with the SDK file in `vendor/` (README section 2):
 
 ```
 npm install
@@ -364,8 +365,12 @@ sample writes as such.
 
 - **Version mismatch (E2).** The companion and the SDK must match on `major.minor.patch`. The SDK may also print
   a source-commit notice; that notice alone does not stop the run.
-- **`npm install` fails with 401 or 404 for `@kinvent/companion-sdk`.** `NODE_AUTH_TOKEN` is not set, has expired,
-  or has no access to the package. See README section 2, or ask Kinvent.
+- **`npm install` fails with `ENOENT: no such file or directory` for `vendor/kinvent-companion-sdk-<version>.tgz`.**
+  The SDK file is not in `vendor/`, or its name is not exactly the one in `vendor/README.md`. The file name carries
+  the version, and it must be the version this sample is built for. See README section 2, or ask Kinvent.
+- **You replaced the SDK file, and `npm install` fails with `EINTEGRITY`, or the old SDK is still used.** The
+  `package-lock.json` records the old file; npm may also take the old SDK from its cache without a message. Delete
+  `package-lock.json` and `node_modules/`, then run `npm install`.
 - **Session held (E3).** Only one client may hold the companion's session. A Kinvent web app tab counts, even in
   the background. Close it and wait 5 seconds; the companion frees a session 5 seconds after its last poll.
 - **No sensor found, no error.** Almost always the macOS Bluetooth permission of the companion (section 1). Also

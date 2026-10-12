@@ -11,14 +11,15 @@ with the reasons in the code comments.
 > Anything you build on this that changes sampling rates, calibration or the measurement path of a medical device
 > must be checked by your own device software, quality and regulatory (EU MDR) people before release.
 
-> **Licence.** See [`LICENSE`](../../LICENSE) at the root of this repository. Kinvent provides the licence terms before delivery.
+> **Licence.** Both licence files are at the root of this repository. This sample: [`LICENSE`](../../LICENSE). The SDK: [`LICENSE-SDK`](../../LICENSE-SDK), the same text that is
+> packed inside the SDK file (after `npm install`: `node_modules/@kinvent/companion-sdk/LICENSE`).
 
 | You want to… | Read |
 |---|---|
 | Understand how the pieces fit, and see the SDK in short snippets | this file, sections 1 to 5 |
 | Run the smallest complete program | [`examples/quickstart.ts`](./examples/quickstart.ts) (section 3) |
 | Find where the sample does something, and why | this file, sections 6 to 8, then the code comments |
-| Install the SDK from Kinvent's private npm registry | this file, section 2 |
+| Install the SDK from the file Kinvent gives you | this file, section 2 |
 | Run the sample: flags, devices, the CSV format, error messages, exit codes | [`GUIDE.md`](./GUIDE.md) |
 | Test without sensors | this file, section 10 |
 | Look up an SDK method | this file, section 5, and the SDK's type declarations (`node_modules/@kinvent/companion-sdk/dist/index.d.ts`) |
@@ -75,40 +76,44 @@ with the reasons in the code comments.
   `@kinvent/companion-sdk` at the exact version written in `package.json`; install the Kinvent Companion app of
   that same version. A different version is refused (error E2, `compatibility().state !== 'match'`).
 - **`rxjs` 7.** The SDK hands you RxJS observables.
-- **A token issued by Kinvent.** You cannot install the SDK without it. `@kinvent/companion-sdk` is not on the
-  public npm registry: it is published on GitHub Packages (`https://npm.pkg.github.com`), scope `@kinvent`, and
-  only accounts Kinvent grants can read it. Kinvent gives your organisation read access and a GitHub token with
-  the `read:packages` scope. The token is a secret: keep it out of files, tickets, chats and git. This project
-  itself is public; the SDK is not.
+- **The SDK file from Kinvent.** `@kinvent/companion-sdk` is not on the public npm registry. Kinvent gives your
+  organisation the SDK as one file, `kinvent-companion-sdk-<version>.tgz`, under the licence in
+  [`LICENSE-SDK`](../../LICENSE-SDK) (the same text is packed inside the SDK file).
+  The `<version>` must be the version this sample is built for: the one written in `vendor/README.md` and in
+  `package.json` (`"@kinvent/companion-sdk": "file:vendor/kinvent-companion-sdk-<version>.tgz"`). This project itself
+  is public; the SDK file is not. Do not commit it, publish it or share it outside your organisation
+  (`vendor/*.tgz` is in this project's `.gitignore`).
 
-### Install the SDK from the private registry
+### Install the SDK from the file
 
-The project has an `.npmrc` file with two lines:
+1. Get the SDK file from Kinvent. Its name must be exactly the one in `vendor/README.md` (for example
+   `kinvent-companion-sdk-2026.9.1.tgz`). Do not rename a file of another version: the version of the file, of
+   `package.json` and of the Kinvent Companion app must be the same.
+2. Put the file in the `vendor/` folder of this project.
+3. Run `npm install`.
+
+`npm install` reads the SDK from `vendor/`. Everything else (`rxjs`, TypeScript, the Node.js types) comes from the
+public npm registry, so you need no login and no token.
+
+If the file is missing, or has another name, `npm install` stops with an error like this one. npm first prints
+"seems to be corrupted. Trying again." twice; the file is not corrupted, it is not there:
 
 ```
-@kinvent:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+npm warn tarball tarball data for @kinvent/companion-sdk@file:vendor/kinvent-companion-sdk-2026.9.1.tgz (null) seems to be corrupted. Trying again.
+npm error code ENOENT
+npm error syscall open
+npm error path <this project>/vendor/kinvent-companion-sdk-2026.9.1.tgz
+npm error enoent ENOENT: no such file or directory, open '<this project>/vendor/kinvent-companion-sdk-2026.9.1.tgz'
 ```
 
-The first line sends every `@kinvent/…` package to GitHub Packages. The second line reads the token from the
-environment variable `NODE_AUTH_TOKEN` when npm runs: the file holds the NAME of the variable, never the token.
-Set the variable in your shell, then install:
+The path in the message is the file npm looked for. Put the file with exactly that name in `vendor/`, then run
+`npm install` again. If your file has another version, ask Kinvent for the file of the version this sample is built
+for, or for the sample that matches your file.
 
-```bash
-# macOS / Linux
-export NODE_AUTH_TOKEN=<the token Kinvent gave you>
-npm install
-```
-
-```powershell
-# Windows PowerShell
-$env:NODE_AUTH_TOKEN = "<the token Kinvent gave you>"
-npm install
-```
-
-In CI, store the token as a secret of the CI system and expose it as `NODE_AUTH_TOKEN`. If `npm install` answers
-`401` or `404` for `@kinvent/companion-sdk`, the token is missing, expired, or has no access to the package: ask
-Kinvent.
+When Kinvent sends you a new SDK file of the SAME version, replace the file in `vendor/`, delete
+`package-lock.json` and `node_modules/`, and run `npm install` again. The lockfile records the bytes of the old
+file. If you keep it, npm either stops with `npm error code EINTEGRITY` ("integrity checksum failed"), or, worse,
+installs the OLD SDK from its cache without any message.
 
 The package is ESM only, and everything is imported from its root:
 
@@ -121,12 +126,12 @@ import {CompanionClient, CompanionError, DeviceState, DeviceType} from '@kinvent
 In the folder of this project. On Windows PowerShell, run each line as it is.
 
 ```bash
-npm install          # needs NODE_AUTH_TOKEN, see section 2
+npm install          # needs the SDK file in vendor/, see section 2
 npm run build
 ```
 
-The first `npm install` creates `package-lock.json`. Commit it in your copy of this project, so every later install
-gets the same versions (this public project ships without one, because creating it needs access to the SDK).
+The first `npm install` creates `package-lock.json`. You can commit it in your copy of this project, so every later
+install gets the same versions. This project ships without one, because it records the exact bytes of your SDK file.
 
 Start the installed Kinvent Companion app (the same version as the SDK).
 

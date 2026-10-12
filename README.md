@@ -23,9 +23,10 @@ Start with [`sample/js/README.md`](./sample/js/README.md).
 - The **Kinvent Companion app**, installed and running, of the **same version** as the SDK the sample uses.
   The SDK refuses to work with a Companion app of another version.
 - **Node.js 22** or later, for the JavaScript sample.
-- **Access to the SDK.** `@kinvent/companion-sdk` is not on the public npm registry. It is installed from
-  Kinvent's private package registry with an access token that Kinvent gives you. The sample's README explains
-  how to set it up. Keep the token secret: never put it in a file, a ticket, a chat or git.
+- **The SDK file.** `@kinvent/companion-sdk` is not on the public npm registry and is not in this repository.
+  Kinvent gives you the SDK as a file, for example `kinvent-companion-sdk-2026.9.1.tgz`. Put it in the
+  sample's `vendor/` folder and run `npm install`; no login or token is needed. The file is licensed to your
+  organisation: never commit it or share it. The sample's `.gitignore` already keeps it out of git.
 
 ## Versions
 
@@ -43,4 +44,7 @@ software, quality and regulatory people before release.
 
 ## Licence
 
-See [`LICENSE`](./LICENSE).
+- The samples: [`LICENSE`](./LICENSE).
+- The Kinvent Companion SDK: [`LICENSE-SDK`](./LICENSE-SDK). The same text is packed inside the SDK file. In
+  short, the SDK may only be used with Kinvent devices through the Kinvent Companion app, and it must not be
+  modified, reverse engineered, decompiled or redistributed on its own.

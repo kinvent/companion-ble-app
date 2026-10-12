@@ -1,0 +1,45 @@
+Kinvent Companion SDK licence
+
+Copyright (c) 2026 Kinvent Biomecanique. All rights reserved.
+
+This licence applies to the Kinvent Companion SDK (@kinvent/companion-sdk) as
+delivered by Kinvent: the JavaScript bundle and its type declarations. For this
+licence, the delivered files are the "binary form" of the SDK, even though they
+are JavaScript files.
+
+Use and redistribution in binary form, without modification, are permitted
+provided that the following conditions are met:
+
+1. The SDK may be redistributed only as an embedded part of your own product
+   that is used with Kinvent devices, or of a software update for such a
+   product. It must not be redistributed on its own, published to any package
+   registry, or placed in a public repository. Redistributions must reproduce
+   the above copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided with the
+   product.
+
+2. Neither the name of Kinvent nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
+   prior written permission from Kinvent.
+
+3. The SDK must only be used with Kinvent devices through the Kinvent Companion
+   app.
+
+4. The SDK must not be modified, reverse engineered, decompiled, disassembled or
+   de-obfuscated, and no derivative work of it may be made. This does not limit
+   any right that applicable law gives you and that cannot be excluded by
+   contract.
+
+Kinvent does not distribute the source code of the SDK, and this licence grants
+no right to it.
+
+THIS SOFTWARE IS PROVIDED BY KINVENT AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL KINVENT OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

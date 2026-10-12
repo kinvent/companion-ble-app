@@ -8,3 +8,6 @@ node_modules/
 # Recordings hold sensor data of a person (health data). Never commit them.
 recordings/
 *.csv
+
+# The Kinvent SDK file is licensed to your organisation. Never commit it. (vendor/README.md stays.)
+vendor/*.tgz

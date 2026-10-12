@@ -1,6 +1,45 @@
-Kinvent Companion CLI sample
+Kinvent Companion samples licence
 
-Licence terms to be provided by Kinvent before delivery.
+Copyright (c) 2026 Kinvent Biomecanique. All rights reserved.
 
-Until Kinvent provides the licence terms, no right to use, copy, modify or
-distribute this software is granted.
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form, except as embedded into a product or a
+   software update for such a product that is used with Kinvent devices, must
+   reproduce the above copyright notice, this list of conditions and the
+   following disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+3. Neither the name of Kinvent nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
+   prior written permission from Kinvent.
+
+4. This software, with or without modification, must only be used with Kinvent
+   devices through the Kinvent Companion app.
+
+5. This licence covers this sample only. It grants no right in the Kinvent
+   Companion SDK (@kinvent/companion-sdk), the Kinvent Companion app, or any
+   other Kinvent software that this sample uses. Those are licensed only under
+   their own Kinvent licence terms; the terms of the Kinvent Companion SDK are
+   set out in the file LICENSE-SDK. In particular, they must not be modified,
+   reverse engineered, decompiled, disassembled or de-obfuscated, and the
+   Kinvent Companion SDK file must not be redistributed except as permitted by
+   its own licence, and never in a public repository.
+
+THIS SOFTWARE IS PROVIDED BY KINVENT AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL KINVENT OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+This is a developer sample. It is not a medical device and is not intended for
+clinical use, diagnosis or treatment.
