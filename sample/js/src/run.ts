@@ -129,7 +129,7 @@ function line(out: Output, text: string): void {
 }
 
 export async function runCli(env: RunEnv): Promise<ExitCode> {
-    line(env.stdout, `Kinvent Companion CLI sample ${env.version} (companion-sdk ${SDK_VERSION})`);
+    line(env.stdout, `Kinvent Companion SDK sample ${env.version} (companion-sdk ${SDK_VERSION})`);
     line(env.stdout, NOTICE);
     line(env.stdout, '');
 

@@ -211,7 +211,7 @@ describe('The recorder: the head waits for the final layout', () => {
         assert.equal(
             readFileSync(path, 'utf8'),
             [
-                '"Kinvent Companion CLI sample s","Companion c","companion-sdk k","Devices:","K-Deltas"',
+                '"Kinvent Companion SDK sample s","Companion c","companion-sdk k","Devices:","K-Deltas"',
                 '"Session Date","2026-10-07"',
                 '"Session Time","10:15:30"',
                 '"Configuration"',
@@ -289,7 +289,7 @@ describe('The recorder: the head waits for the final layout', () => {
         const rec = recorder();
         const path = await rec.open(facts({jump: undefined}));
         assert.equal(rec.headPending, false);
-        assert.match(readFileSync(path, 'utf8'), /^"Kinvent Companion CLI sample s".*\n[\s\S]*"Raw Channel Data"\n$/);
+        assert.match(readFileSync(path, 'utf8'), /^"Kinvent Companion SDK sample s".*\n[\s\S]*"Raw Channel Data"\n$/);
         await rec.end('time end');
     });
 });

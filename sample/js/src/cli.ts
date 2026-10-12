@@ -3,7 +3,7 @@
  * FOR INTEGRATORS: Program plumbing, no SDK call: it connects `runCli` (`run.ts`) to the real terminal (questions on stdin,
  * output, signals) and keeps a copy of the messages in a log. Your own program replaces this file.
  *
- * Entry point of the Kinvent companion CLI sample. Builds the environment from
+ * Entry point of the Kinvent companion SDK sample. Builds the environment from
  * `process` and runs {@link runCli} (`run.ts`), which holds the whole flow.
  */
 import {readFileSync} from 'node:fs';

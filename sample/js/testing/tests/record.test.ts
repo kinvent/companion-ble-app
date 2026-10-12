@@ -350,7 +350,7 @@ describe('record: the file', () => {
         assert.equal(summaryValue(csv, 'Samples lost'), '0');
         assert.equal(summaryValue(csv, 'Gaps'), '0');
         assert.equal(summaryValue(csv, 'End reason'), 'time end');
-        assert.deepEqual(values(csv[0]!), ['Kinvent Companion CLI sample test', `Companion ${VERSION}`, `companion-sdk ${VERSION}`, 'Devices:', 'K-Grip']);
+        assert.deepEqual(values(csv[0]!), ['Kinvent Companion SDK sample test', `Companion ${VERSION}`, `companion-sdk ${VERSION}`, 'Devices:', 'K-Grip']);
         assert.deepEqual(values(csv[findRow(csv, 'Device type')]!), ['Device type', 'GRIP']);
         assert.deepEqual(values(csv[findRow(csv, 'Sample rate set (Hz)')]!), ['Sample rate set (Hz)', '75']);
         assert.equal(findRow(csv, 'Sample rate (Hz)'), -1, 'the set rate is labelled "set"');

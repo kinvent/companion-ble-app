@@ -138,7 +138,7 @@ function expectedPairFile(left: readonly ForceSample[], right: readonly ForceSam
         [1, 2, 3, 4].map((n) => `"CHANNEL_${n}","K-Plate ${side}","force${n}","kg","KILOGRAM"`),
     );
     return [
-        `"Kinvent Companion CLI sample test","Companion ${VERSION}","companion-sdk ${VERSION}","Devices:","K-Plate Left","K-Plate Right"`,
+        `"Kinvent Companion SDK sample test","Companion ${VERSION}","companion-sdk ${VERSION}","Devices:","K-Plate Left","K-Plate Right"`,
         '"Session Date","2026-10-07"',
         '"Session Time","10:15:30"',
         '"Configuration"',
@@ -178,7 +178,7 @@ function expectedPairFile(left: readonly ForceSample[], right: readonly ForceSam
  */
 function expectedSingleFile(samples: readonly ForceSample[], title: string, type: string): string {
     return [
-        `"Kinvent Companion CLI sample test","Companion ${VERSION}","companion-sdk ${VERSION}","Devices:","${title}"`,
+        `"Kinvent Companion SDK sample test","Companion ${VERSION}","companion-sdk ${VERSION}","Devices:","${title}"`,
         '"Session Date","2026-10-07"',
         '"Session Time","10:15:30"',
         '"Configuration"',

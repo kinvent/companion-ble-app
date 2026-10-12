@@ -234,7 +234,7 @@ export function preambleLines(facts: RecordingFacts, startedAt: Date): string[] 
     const channel = (i: number): string => `CHANNEL_${i + 1}`;
     return [
         csvRow([
-            csvText(`Kinvent Companion CLI sample ${facts.sampleVersion}`),
+            csvText(`Kinvent Companion SDK sample ${facts.sampleVersion}`),
             csvText(`Companion ${facts.companionVersion}`),
             csvText(`companion-sdk ${facts.sdkVersion}`),
             csvText('Devices:'),
@@ -293,7 +293,7 @@ export function multiPreambleLines(facts: RecordingFacts & {devices: readonly De
     const sameRate = rates.every((hz) => hz === rates[0]);
     return [
         csvRow([
-            csvText(`Kinvent Companion CLI sample ${facts.sampleVersion}`),
+            csvText(`Kinvent Companion SDK sample ${facts.sampleVersion}`),
             csvText(`Companion ${facts.companionVersion}`),
             csvText(`companion-sdk ${facts.sdkVersion}`),
             csvText('Devices:'),

@@ -114,7 +114,7 @@ function alreadyJumping(hz: number): FrequencySettingsSnapshot {
  */
 function expectedJumpFile(samples: readonly ForceSample[], hz: number): string {
     return [
-        `"Kinvent Companion CLI sample test","Companion ${VERSION}","companion-sdk ${VERSION}","Devices:","K-Deltas"`,
+        `"Kinvent Companion SDK sample test","Companion ${VERSION}","companion-sdk ${VERSION}","Devices:","K-Deltas"`,
         '"Session Date","2026-10-07"',
         '"Session Time","10:15:30"',
         '"Configuration"',

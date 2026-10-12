@@ -1,4 +1,4 @@
-# Kinvent Companion CLI sample — user guide
+# Kinvent Companion SDK sample — user guide
 
 How to build, run and read the output of the sample. For what the code does and how to use the SDK in your own
 program, start with the [README](./README.md).
@@ -214,7 +214,7 @@ not. The layout follows the Kinvent app's CSV export, so the same tools read bot
 **Sections, in order** (the values below are synthetic):
 
 ```
-"Kinvent Companion CLI sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Grip"
+"Kinvent Companion SDK sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Grip"
 "Session Date","2026-10-08"
 "Session Time","10:15:30"
 "Configuration"

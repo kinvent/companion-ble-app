@@ -1,4 +1,4 @@
-# Kinvent Companion CLI sample
+# Kinvent Companion SDK sample
 
 **Start here if you want to read Kinvent sensors from your own program.**
 

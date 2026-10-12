@@ -151,7 +151,7 @@ describe('recorder: the file', () => {
         await rec.append([sample(1020, [3.25, 1e-16])]);
         const result = await rec.end('time end', {samplesLost: 5, gaps: 1});
         const expected = [
-            '"Kinvent Companion CLI sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Push"',
+            '"Kinvent Companion SDK sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Push"',
             '"Session Date","2026-10-07"',
             '"Session Time","10:15:30"',
             '"Configuration"',
@@ -286,7 +286,7 @@ describe('recorder: the file', () => {
         const rec = recorder();
         const path = await rec.open(facts({serialCode: 'SYN-0001'}));
         await rec.end('time end');
-        assert.ok(readFileSync(path, 'utf8').startsWith('"Kinvent Companion CLI sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Push (serial SYN-0001)"\n'));
+        assert.ok(readFileSync(path, 'utf8').startsWith('"Kinvent Companion SDK sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Push (serial SYN-0001)"\n'));
         assert.ok(!path.includes('SYN'));
         const plain = recorder();
         const plainPath = await plain.open(facts());
@@ -470,7 +470,7 @@ describe('recorder: two devices', () => {
         await rec.append([sample(5010, [8])], 1);
         const result = await rec.end('time end', {samplesLost: 5, gaps: 1, perDevice: [{samplesLost: 5, gaps: 0}, {samplesLost: 0, gaps: 1}]});
         const expected = [
-            '"Kinvent Companion CLI sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Plate Left","K-Plate Right"',
+            '"Kinvent Companion SDK sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Plate Left","K-Plate Right"',
             '"Session Date","2026-10-07"',
             '"Session Time","10:15:30"',
             '"Configuration"',
@@ -589,7 +589,7 @@ describe('recorder: two devices', () => {
             ),
             text,
         );
-        assert.ok(text.startsWith('"Kinvent Companion CLI sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Plate Left","K-Plate Right (serial SYN-R)"\n'));
+        assert.ok(text.startsWith('"Kinvent Companion SDK sample 2026.9.1","Companion 2026.9.1","companion-sdk 2026.9.1","Devices:","K-Plate Left","K-Plate Right (serial SYN-R)"\n'));
         const csv = parseCsv(text);
         assert.equal(findRow(csv, 'Sample rate set (Hz)'), -1, 'no shared row when the rates differ');
         assert.equal(summaryValue(csv, 'End reason'), 'device lost (K-Plate Right)');
