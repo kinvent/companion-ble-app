@@ -1,0 +1,32 @@
+{
+  "name": "kinvent-companion-sdk-sample",
+  "version": "2026.9.1",
+  "private": true,
+  "type": "module",
+  "description": "Developer sample, not for clinical use: a Node.js command-line program that records raw samples from Kinvent sensors through the Kinvent Companion app, using @kinvent/companion-sdk.",
+  "license": "SEE LICENSE IN ../../LICENSE",
+  "bin": {
+    "kinvent-companion-sample": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -b tsconfig.json",
+    "build:testing": "tsc -p tsconfig.testing.json",
+    "build:examples": "tsc -p tsconfig.examples.json",
+    "typecheck": "tsc -b tsconfig.json && tsc -p tsconfig.testing.json --noEmit && tsc -p tsconfig.examples.json --noEmit",
+    "test": "npm run build:testing && node -e \"const fs=require('node:fs');const d='dist-testing/testing/tests';if(!fs.existsSync(d)||!fs.readdirSync(d).some((f)=>f.endsWith('.test.js'))){console.error('No compiled tests in '+d+'. Run: npm run build:testing');process.exit(1)}\" && node --test \"dist-testing/testing/tests/*.test.js\" scripts/update-sdk.test.mjs",
+    "start": "node dist/cli.js",
+    "update-sdk": "node scripts/update-sdk.mjs",
+    "clean": "node -e \"for (const p of ['dist','dist-testing','dist-examples','tsconfig.tsbuildinfo']) require('node:fs').rmSync(p,{recursive:true,force:true})\""
+  },
+  "dependencies": {
+    "@kinvent/companion-sdk": "file:vendor/kinvent-companion-sdk.tgz",
+    "rxjs": "^7.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
